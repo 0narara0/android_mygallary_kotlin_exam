@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -20,6 +22,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+        
+    }
 }
 
 dependencies {
@@ -32,4 +39,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-alpha04'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    // annotationProcessor 대신  kapt 로  써줘야 한다
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+
 }
